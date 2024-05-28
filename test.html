@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Biology - Natural Selection</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            justify-content: center;
+            
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background: #2b7a78;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        .cta-button {
+            background: #3aafa9;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        section {
+            padding: 2em 0;
+            margin: 0 10px;
+        }
+        section h2 {
+            margin-bottom: 1em;
+        }
+        .post-preview, .resource-preview {
+            margin-bottom: 1em;
+        }
+        .read-more, .view-resources, .interactive-link {
+            color: #3aafa9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            nav {
+                display: block;
+                text-align: center;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Natural Selection</h1>
+    </header>
+    <main>
+        <section>
+            <h2>What is natural selection?</h2>
+            <p>Individuals with variations better suited to environments pass more alleles to the next generation. <br>The most common types of natural selection are directional, disruptive, and stabilizing selection.</p>
+        </section>
+        <section>
+            <h2>Directional selection</h2>
+            <img src="chart1.png" alt="Directional Selection Chart">
+            <p>One extreme phenotype is favored. (Ex. Giraffe neck size depending on the height of trees)</p>
+        </section>
+        <section>
+            <h2>Disruptive selection</h2>
+            <img src="chart2.png" alt="Disruptive Selection Chart">
+            <p>Both extreme phenotypes are favored. (Ex. Dark and light-colored moths are able to hide in their environment better than gray moths)</p>
+        </section>
+        <section>
+            <h2>Stabilizing selection</h2>
+            <img src="chart3.png" alt="Stabilizing Selection Chart">
+            <p>The intermediate phenotype is favored. (Ex. Medium-colored beetles better camouflaged from predators)</p>
+        </section>
+    </main>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/7VM9YxmULuo?si=lOKkH_XyZ3k-utOm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+    <iframe src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_en.html"
+        width="800"
+        height="600"
+        allowfullscreen>
+        </iframe>
+
+    <section id="quiz">
+        <h2>Natural Selection Quiz</h2>
+        <div id="quiz-container">
+            <p>Question 1: What is natural selection?</p>
+            <input type="radio" name="q1" value="a"> A process where humans select traits that are desirable to them<br>
+            <input type="radio" name="q1" value="b"> Individuals with variations better suited to environments pass more alleles to the next generation
+            <br>
+            <input type="radio" name="q1" value="c"> Variation in populations due to random mutations<br>
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+        <p id="quiz-result"></p>
+        <div id="quiz-container2">
+       </div>     <p>Question 2: A population of rabbits has a variety of fur colors ranging from white to black, with many shades of gray in between. <br>In a snowy environment, the white rabbits are less likely to be caught by predators, while in a rocky environment, black rabbits are less likely to be caught. <br>What type of natural selection might be occurring in this rabbit population?
+            </p>
+            <input type="radio" name="q2" value="a"> Disruptive selection<br>
+            <input type="radio" name="q2" value="b"> Stabilizing selection<br>
+            <input type="radio" name="q2" value="c"> Directional selection<br>
+            <button onclick="checkAnswer2()">Submit</button>
+        </div>
+        <p id="quiz-result2"></p>
+        <div id="quiz-container3">
+            <p>Question 3: In a species of fish, there is a range of fin sizes. <br>Fish with medium-sized fins are better able to maneuver and escape predators than those with very large or very small fins. <br>What type of selection is acting on this fish population?</p>
+            <input type="radio" name="q3" value="a"> Disruptive selection<br>
+            <input type="radio" name="q3" value="b"> Stabilizing selection<br>
+            <input type="radio" name="q3" value="c"> Directional selection<br>
+            <button onclick="checkAnswer3()">Submit</button>
+        </div>
+        <p id="quiz-result3"></p>
+    </section>
+
+    <footer>
+        <p>Created by: Andrew Ma and Isaac Lee</p>
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            var radios = document.getElementsByName('q1');
+            var result = document.getElementById('quiz-result');
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    if (radios[i].value === 'b') {
+                        result.textContent = 'Correct!';
+                        result.style.color = 'green';
+                    } else {
+                        result.textContent = 'Try again.';
+                        result.style.color = 'red';
+                    }
+                    break;
+                }
+            }
+        }
+        function checkAnswer2() {
+            var radios = document.getElementsByName('q2');
+            var result = document.getElementById('quiz-result2');
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    if (radios[i].value === 'a') {
+                        result.textContent = 'Correct! Disruptive selection favors extreme phenotypes over intermediate ones. In this case, both white and black rabbits are favored in their respective environments, while gray rabbits are at a disadvantage in both environments.';
+                        result.style.color = 'green';
+                    } else {
+                        result.textContent = 'Try again.';
+                        result.style.color = 'red';
+                    }
+                    break;
+                }
+            }
+        }
+        function checkAnswer3() {
+            var radios = document.getElementsByName('q3');
+            var result = document.getElementById('quiz-result3');
+            for (var i = 0, length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    if (radios[i].value === 'b') {
+                        result.textContent = 'Correct! Stabilizing selection favors intermediate phenotypes over extreme ones. Fish with medium-sized fins are favored because they can maneuver better and escape predators more effectively than those with very large or very small fins.';
+                        result.style.color = 'green';
+                    } else {
+                        result.textContent = 'Try again.';
+                        result.style.color = 'red';
+                    }
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
